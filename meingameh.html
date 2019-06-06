@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>A E S T H E T I C  G A M E</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<style type="text/css">
+		</style>
+</head>
+<body>
+	<div class="col-12 border border-primary " style="height: 150px; background-color: #ff0066; color: #00ffff">
+		<h3 class="font-weight-bolder font-italic">ＴＡＫＥ　ＡＬＬ　ＶＨＳ　ＣＡＳＳＥＴＥＳ ヺ液カ苛真</h3>
+		<h1>【﻿Ｓｃｏｒｅｓ　　】 <span class="scores">0</span></h1>
+		<h1>【﻿Ｃａｓｓｅｔｅｓ】 <span class="vhs">0</span></h1>
+		
+	</div>
+	<div class="col-12" style="background-image: url(background.jpg); height: 590px; background-size: 100% 100%; background-size: 100% 100%; ">
+		<button class="btn font-weight-bold  reset" style="width: 150px; margin-left: 1350px; margin-bottom: 250px; background-color: #00ffff; color: #ff0066;">Reset リピヌ</button>			
+	</div>
+
+
+
+	<script type="text/javascript">
+
+		
+
+		let vhs
+		let scores = 0;
+		let miss = 0;
+
+		let randomizator = function(arg){
+		let random = Math.random()*arg
+		let round = Math.round(random) 
+		let check = round+"px"
+		return check
+	}
+
+		document.querySelector(".reset").onclick = function(){ 
+			location.reload()
+		}
+
+		let func = function(){
+		miss = miss + 1;
+		document.querySelector('.vhs').innerHTML = miss;
+		let img = document.createElement("img");
+		document.body.appendChild(img);
+
+		img.classList.add("block");
+		img.src = "VHS.png"
+		img.style.width = "80px"
+		img.style.position = "absolute"
+		img.style.top = randomizator(500)//Math.round(Math.random()*window.innerHeight-100) + 'px';
+		img.style.left = randomizator(1200)//Math.round(Math.random()*window.innerWidth) + 'px';
+
+		img.onclick = function(){
+
+			img.style.display='none'
+			scores = scores + 1;
+			document.querySelector('.scores').innerHTML = scores;
+		}
+	}
+
+	let clear = setInterval(func,700)
+
+	let check = function(){
+		if(11>=scores){
+			alert("Ｙｏｕ　ｌｏｓｅ　　スペよ");
+			clearInterval(clear); 
+		}else{
+			alert("Ｙｏｕ　ｗｉｎ　逸永往");
+			clearInterval(clear);
+		}
+	}
+
+	setTimeout(check, 10000)
+	</script>
+</body>
+</html>
